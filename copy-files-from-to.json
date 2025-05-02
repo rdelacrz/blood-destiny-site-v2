@@ -1,0 +1,29 @@
+{
+  "copyFiles": [
+    {
+      "from": {
+        "default": "node_modules/htmx.org/dist/htmx.min.js",
+        "development": "node_modules/htmx.org/dist/htmx.js"
+      },
+      "to": "public/htmx.js"
+    },
+    {
+      "from": {
+        "default": "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+        "development": "node_modules/@fortawesome/fontawesome-free/css/all.css"
+      },
+      "to": "public/css/fontawesome.css"
+    },
+    {
+      "from": "node_modules/@fortawesome/fontawesome-free/webfonts",
+      "to": "public"
+    },
+    {
+      "from": "assets/**/*",
+      "to": "public"
+    }
+  ],
+  "copyFilesSettings": {
+    "whenFileExists": "overwrite"
+  }
+}

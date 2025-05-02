@@ -1,0 +1,40 @@
+<header class="hidden sm:flex bg-blue-dark py-9">
+  <div class="flex justify-between items-center container mx-auto px-4">
+    <a href="/">
+      <img
+        src="/public/images/graphics/blood_destiny_logo.png"
+        alt="Blood Destiny Logo"
+        width="132"
+      />
+    </a>
+    <ul class="flex">
+      <li class="mx-1 xl:mx-4">
+        <a id="homeLink" href="/">Home</a>
+      </li>
+      <li class="mx-1 xl:mx-4">
+        <a id="aboutLink" href="/about">About</a>
+      </li>
+      <li class="mx-1 xl:mx-4">
+        <a id="charactersLink" href="/characters">Characters</a>
+      </li>
+      <li class="mx-1 xl:mx-4">
+        <a id="soundtrackLink" href="/soundtrack">Soundtrack</a>
+      </li>
+      <li class="mx-1 xl:mx-4">
+        <a id="updatesLink" href="/updates">Updates</a>
+      </li>
+      <li class="mx-1 xl:mx-4">
+        <a id="contactLink" href="/contact">Contact</a>
+      </li>
+    </ul>
+    <ul class="flex">
+      <li>
+        {%- import "macros.html" as macros -%}
+        {% call macros::icon_link(
+          link="https://twitter.com/BloodDestinyVN",
+          icon_class="fa-brands fa-x-twitter"
+        ) %}
+      </li>
+    </ul>
+  </div>
+</header>

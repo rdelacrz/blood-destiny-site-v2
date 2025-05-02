@@ -1,0 +1,5 @@
+{% macro icon_link(link, icon_class, target = "") %}
+  <a href="{{ link }}" target="{{ target }}">
+    <i class="text-white text-[1.75rem] {{ icon_class }}"></i> 
+  </a>
+{% endmacro icon_link %}
