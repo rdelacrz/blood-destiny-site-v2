@@ -1,5 +1,55 @@
 {% macro icon_link(link, icon_class, target = "") %}
-  <a href="{{ link }}" target="{{ target }}">
-    <i class="text-white text-[1.75rem] {{ icon_class }}"></i> 
-  </a>
+<a href="{{ link }}" {% if !target.is_empty() %}target="{{ target }}"{% endif %}>
+  <i class="text-white text-[1.75rem] {{ icon_class }}"></i>
+</a>
 {% endmacro icon_link %}
+
+{% macro responsive_img(src, alt="", class = "") %}
+{% let sizes = [640, 750, 828, 960, 1080, 1280, 1668, 1920, 2048, 2560, 3200, 3840, 4480, 5120, 6016] %}
+<img
+  src="{{ src }}?fit=min&auto=format"
+  loading="eager"
+  fetchpriority="high"
+  {% if !alt.is_empty() %}alt="{{ alt }}"{% endif %}
+  class="bg-cover bg-no-repeat object-cover w-full {% if !class.is_empty() %}{{ class }}{% endif %}"
+  style="background-image: url('{{ src }}?w=24&fit=min&auto=format')"
+  srcset="{% for size in sizes %}{{ src }}?w={{ size }}&fit=min&auto=format {{ size }}w{% if !loop.last %},{% endif %}{% endfor %}"
+/>
+{% endmacro responsive_img %} {% macro app_button(button_text, onclick, id="", class="", disabled="false") %}
+<button
+  {% if !id.is_empty() %}id="{{ id }}"{% endif %}
+  type="button"
+  class="ripple-button flex align-middle bg-crimson capitalize cursor-pointer select-none text-white font-poppins font-medium overflow-hidden relative rounded-tl-none rounded-tr-[1.125rem] rounded-bl-[1.25rem] rounded-br-none py-[1.375rem] px-6 {% if !class.is_empty() %}{{ class }}{% endif %}"
+  {% if disabled != "false" %}disabled{% endif %}
+  onclick="{{ onclick }}"
+  _="
+    on every click
+      make a <span.ripple /> called ripple
+      append ripple to me
+      measure me then set rect to the result
+      set size to Math.max(rect.width, rect.height)
+      set ripple.style.width to (size + 'px')
+      set ripple.style.height to (size + 'px')
+      set ripple.style.left to (event.clientX - rect.left - (size / 2)) + 'px'
+      set ripple.style.top to (event.clientY - rect.top - (size / 2)) + 'px'
+      settle then remove ripple
+  "
+>
+  {{ button_text }}
+</button>
+{% endmacro app_button %}
+
+{% macro app_link(link_text, href, id="", class="") %}
+{% let active = (*href == route) %}
+<div
+  class="p-[10px] border {% if active %}border-crimson{% else %}border-transparent{% endif %}"
+>
+  <a
+    {% if !id.is_empty() %}id="{{ id }}"{% endif %}
+    href="{{ href }}"
+    class="font-poppins leading-6 uppercase transition-color ease-in-out duration-300 {% if active %}text-crimson{% else %}text-white hover:text-crimson-light{% endif %} {% if !class.is_empty() %}{{ class }}{% endif %}"
+  >
+    {{ link_text }}
+  </a>
+</div>
+{% endmacro app_link %}

@@ -1,0 +1,18 @@
+/* Contains special styles outside of Tailwind that should be defined here */
+
+/* Ripple effect related */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 600ms linear;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+@keyframes ripple-animation {
+  to {
+    opacity: 0;
+    transform: scale(4);
+  }
+}

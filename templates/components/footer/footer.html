@@ -1,0 +1,24 @@
+{%- import "macros.html" as macros -%}
+
+<footer
+  class="container mx-auto bg-crimson rounded-tl-[60px] rounded-tr-[60px] min-h-10 px-8 pt-8 pb-4"
+>
+  <div class="pb-8">
+    <img
+      class="mx-auto"
+      src="/public/static/images/graphics/blood_destiny_logo_white.png"
+      alt="White Blood Destiny Logo"
+      width="218"
+    />
+  </div>
+  <div class="flex justify-between border-t border-white pt-4">
+    <div class="font-poppins leading-8">Copyright &#169; 2025</div>
+    <div>
+      {% call macros::icon_link(
+        link="https://twitter.com/BloodDestinyVN",
+        icon_class="fa-brands fa-x-twitter",
+        target="_blank"
+      ) %}
+    </div>
+  </div>
+</footer>

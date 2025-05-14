@@ -53,5 +53,6 @@ module.exports = {
         { values: theme("textShadow") },
       );
     }),
+    [require("tw-elements/plugin.cjs")]
   ],
 };

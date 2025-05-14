@@ -20,11 +20,20 @@ pub fn setup_router() -> Router {
     router
 }
 
+// Common structs
+
+struct CommonPageContext {
+    title: String,
+    page_title: String,
+    page_description: String,
+}
+
 // Home page
 
 async fn home() -> impl IntoResponse {
     let template = HomeTemplate {
         title: "Blood Destiny".to_string(),
+        route: "/".to_string(),
     };
     HtmlTemplate(template)
 }
@@ -33,4 +42,5 @@ async fn home() -> impl IntoResponse {
 #[template(path = "pages/home.html")]
 struct HomeTemplate {
     title: String,
+    route: String,
 }

@@ -1,0 +1,32 @@
+<!-- prettier-ignore -->
+{% extends "layouts/base.html" %}
+
+{% block page_content %}
+<div
+  class="flex flex-col min-h-screen bg-blue-dark text-white overflow-x-hidden"
+>
+  {% include "components/header/header.html" %}
+  <div class="page-content flex-auto relative">
+    <div class="relative z-10 min-h-[520px]">
+      <img
+        class="absolute max-h-[520px]"
+        :src="backgroundUrl"
+        alt="Page Background"
+      />
+      <div class="relative container mx-auto py-[150px] h-[520px] text-center">
+        <h1 class="uppercase text-[4rem] font-prosto-one text-shadow">
+          {% block page_header %}{{ page_header }}{% endblock %}
+        </h1>
+        <div class="pb-3 max-w-[620px] mx-auto font-poppins text-shadow">
+          {% block page_description %}{{ page_description }}{% endblock %}
+        </div>
+        <div class="text-[1.625rem] font-medium">Breadcrumbs here...</div>
+      </div>
+      <main class="container mx-auto px-4 lg:px-16">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </div>
+  {% include "components/footer/footer.html" %}
+</div>
+{% endblock %}

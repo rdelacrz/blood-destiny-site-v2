@@ -6,7 +6,7 @@ use axum::{
 
 pub struct HtmlTemplate<T>(pub T);
 
-/// Allows us to convert Askama HTML templates into valid HTML for axum to serve in the response.
+/// Converts Askama HTML templates into valid HTML for axum to serve in the response
 impl<T> IntoResponse for HtmlTemplate<T>
     where
         T: Template,

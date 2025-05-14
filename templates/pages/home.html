@@ -1,9 +1,42 @@
 <!-- prettier-ignore -->
 {% extends "layouts/base.html" %}
+{%- import "macros.html" as macros -%}
 
-{% block content %}
-<div class="container">
-  <h1>Welcome to the Home Page</h1>
-  <p>This is the home page of our application.</p>
+{% block page_content %}
+<div
+  class="flex flex-col min-h-screen bg-blue-dark text-white overflow-x-hidden"
+>
+  {% include "components/header/header.html" %}
+  <main class="page-content flex-auto relative">
+    <div
+      class="w-full sm:h-[500px] md:h-[700px] xl:h-[800px] 2xl:h-[900px] mb-20"
+    >
+      {% call macros::responsive_img(
+        src="https://blood-destiny.imgix.net/backgrounds/bkgd_tower_red_sky.png",
+        alt="Home Page Background",
+        class="absolute sm:max-h-[500px] md:max-h-[700px] xl:max-h-[800px] 2xl:max-h-[900px]" 
+      ) %}
+      <main class="container mx-auto px-4 lg:px-16">
+        <div class="relative py-20">
+          <div class="text-[2.5rem] leading-tight font-prosto-one">
+            Ashes Aflame Presents
+          </div>
+          <div class="text-[4rem] leading-tight mb-2 font-prosto-one uppercase">
+            Blood Destiny
+          </div>
+          <div class="text-lg mb-6 max-w-[650px] font-poppins">
+            Prepare to venture into a fascinating new world with supernatural
+            elements, mysterious agendas, and unexpected twists.
+          </div>
+          {% call macros::app_button(
+            id="downloadBtn",
+            button_text="Download",
+            onclick="console.log('Work In Progress...')"
+          ) %}
+        </div>
+      </main>
+    </div>
+  </main>
+  {% include "components/footer/footer.html" %}
 </div>
 {% endblock %}

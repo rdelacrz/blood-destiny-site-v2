@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <title>{% block title %}{{ title }}{% endblock %}</title>
-    <link rel="stylesheet" href="/public/css/fontawesome.css" type="text/css" />
-    <link rel="stylesheet" href="/public/css/tailwind.css" type="text/css" />
-    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/public/main.css" type="text/css" />
+    <script src="/public/main.js"></script>
+    <link rel="icon" href="/public/static/favicon.ico" type="image/x-icon" />
     <meta
       property="og:title"
       content="{% block title %}{{ title }}{% endblock %}"
@@ -13,10 +13,9 @@
       property="og:image"
       content="https://blood-destiny.imgix.net/backgrounds/bkgd_tower_red_sky.png"
     />
-    <script src="/public/htmx.js"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.14"></script>
   </head>
   <body>
-    {% include "components/header/header.html" %}
-    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="content">{% block page_content %}{% endblock %}</div>
   </body>
 </html>
